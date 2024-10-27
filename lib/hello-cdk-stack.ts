@@ -7,7 +7,7 @@ export class HelloCdkStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // Define the Lambda function resource
+    // Modify the Lambda function resource
     const myFunction = new lambda.Function(this, "HelloWorldFunction", {
       runtime: lambda.Runtime.NODEJS_20_X, // Provide any supported Node.js runtime
       handler: "index.handler",
@@ -15,7 +15,7 @@ export class HelloCdkStack extends cdk.Stack {
         exports.handler = async function(event) {
           return {
             statusCode: 200,
-            body: JSON.stringify('Hello World!'),
+            body: JSON.stringify('Hello CDK!'),
           };
         };
       `),
